@@ -10,8 +10,8 @@ console.log(calculateDifference(50, 40));
 
 // 2) Write a function named isOdd that takes one argument and returns true if the number is odd, and false if it is not.
 
-function isOdd(numbers) {
-  if (numbers % 2 === 0) {
+function isOdd(argument) {
+  if (argument % 2 === 0) {
     return false;
   }
   else {
@@ -22,22 +22,16 @@ function isOdd(numbers) {
 // Example:
 console.log(isOdd(21))
 
-function isOdd1(numbers) {
-  return numbers % 2 !== 0;
-}
-
-// Example:
-console.log(isOdd1(21));
 
 // 3) Write a function named findMin that takes an array of numbers and returns the smallest number in the array.
 
-function findMin(numbers) {
+function findMin(arr) {
 
-  if (numbers.length !== 0) {
-    let min = numbers[0];
-    for (let i = 1; i < numbers.length; i++) {
-      if (numbers[i] < min) {
-        min = numbers[i];
+  if (arr.length !== 0) {
+    let min = arr[0];
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < min) {
+        min = arr[i];
       }
     }
     return min;
@@ -48,19 +42,19 @@ function findMin(numbers) {
 }
 
 // Example:
-let num1 = [142, 544, 243, 229, 27];
+let num1 = [142, 54, 24, 22, 27];
 console.log(findMin(num1));
 
 
 // 4) Write a function named filterEvenNumbers that takes an array of numbers and returns a new array containing only the even numbers.
 
 
-function filterEvenNumbers(numbers) {
-  if (numbers.length !== 0) {
+function filterEvenNumbers(arr) {
+  if (arr.length !== 0) {
     let evenNumbers = [];
-    for (let i = 0; i < numbers.length; i++) {
-      if (numbers[i] % 2 === 0) {
-        evenNumbers.push(numbers[i]);
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 === 0) {
+        evenNumbers.push(arr[i]);
       }
     }
     return evenNumbers;
@@ -77,27 +71,37 @@ console.log(filterEvenNumbers(num2));
 
 // 5) Write a function named sortArrayDescending that takes an array of numbers and returns a new array sorted in descending order.
 
-function sortArrayDescending(numbers) {
-  for (let i = 0; i < numbers.length; i++) {
-    for (let j = 0; j < numbers.length - 1; j++) {
-      if (numbers[j] < numbers[j + 1]) {
-        let temp = numbers[j];
-        numbers[j] = numbers[j + 1];
-        numbers[j + 1] = temp;
+function sortArrayDescending(arr) {
+  /*for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - 1; j++) {
+      if (arr[j] < arr[j + 1]) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
       }
     }
   }
-  return numbers;
+  return arr;*/
+
+  let sortedArray = [...arr];
+
+  sortedArray.sort(function (a, b) {
+    return b - a;
+  });
+
+  return sortedArray;
+
 }
 
 // Example
-console.log(sortArrayDescending(num2));
+let num3 = [42, 54, 23, 29, 98];
+console.log(sortArrayDescending(num3));
 
 
 // 6) Write a function named lowercaseFirstLetter that takes a string and returns the same string with the first letter lowercased.
 
 function lowercaseFirstLetter(str) {
-  // Check if the string is empty or not a string
+  // Check string is empty or not a string
   if (typeof str !== 'string' || str.length === 0) {
     return "Input is not valid";
   }
@@ -124,23 +128,24 @@ function countVowels(str) {
 }
 
 // Example:
-console.log(countVowels("Hello World"));
+console.log(countVowels("Count Vowels"));
 
 //8) Write a function named findAverage that takes an array of numbers and returns the average of all elements.
 
-function findAverage(numbers) {
-  if (numbers.length !== 0) {
-    let sum = 0;
-    for (let i = 0; i < numbers.length; i++) {
-      sum += numbers[i];
-    }
-    return sum / numbers.length;
+function findAverage(arr) {
+
+  // Check array is not empty
+  if (arr.length === 0) return 0;
+
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
   }
-  else {
-    return 0;
-  }
+
+  return sum / arr.length;
 }
 
-console.log(findAverage(num2));
+let num4 = [42, 54, 65, 23, 29, 98];
+console.log(findAverage(num4));
 
 
